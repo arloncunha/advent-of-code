@@ -1,5 +1,5 @@
 # advent-of-code
-**[Advent of Code](https://adventofcode.com/)**is an Advent calendar of small programming puzzles.
+**[Advent of Code](https://adventofcode.com/)** is an Advent calendar of small programming puzzles.
 Here are my experiments playing with programming just for fun.
 
 My values for this experiment:
