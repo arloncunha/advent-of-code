@@ -3,6 +3,7 @@
 # Advent of Code unready
 2018/
 ignore/
+config.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
