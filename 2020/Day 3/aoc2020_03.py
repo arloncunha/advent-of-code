@@ -1,7 +1,5 @@
 # --- Day 3: Toboggan Trajectory ---
 # https://adventofcode.com/2020/day/3
-import re
-
 
 part1 = 0
 with open("input.txt", 'r') as reader:

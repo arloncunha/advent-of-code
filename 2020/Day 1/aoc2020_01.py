@@ -1,6 +1,5 @@
 # --- Day 1: Report Repair ---
 # https://adventofcode.com/2020/day/1
-import re
 
 result = 0
 with open('input.txt', 'r') as reader:
