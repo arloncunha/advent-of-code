@@ -73,7 +73,7 @@ def no_occupied_seats_dir(i, j):
         return False
 
 
-def four_occupied_seats(i, j):
+def ge_four_occupied_seats(i, j):
 
     occupied = 0
     if has_seat(i - 1, j - 1):
@@ -99,7 +99,7 @@ def four_occupied_seats(i, j):
         return False
 
 
-def five_occupied_seats(i, j):
+def ge_five_occupied_seats(i, j):
 
     occupied = 0
     if has_seat_dir(i, j, - 1, - 1):
@@ -139,7 +139,7 @@ while True:
         for j in range(cols):
             if position(i, j) == 'L' and no_occupied_seats(i, j):
                 new_board[i][j] = '#'
-            elif position(i, j) == '#' and four_occupied_seats(i, j):
+            elif position(i, j) == '#' and ge_four_occupied_seats(i, j):
                 new_board[i][j] = 'L'
             else:
                 new_board[i][j] = board[i][j]
@@ -155,7 +155,7 @@ while True:
         for j in range(cols):
             if position(i, j) == 'L' and no_occupied_seats_dir(i, j):
                 new_board[i][j] = '#'
-            elif position(i, j) == '#' and five_occupied_seats(i, j):
+            elif position(i, j) == '#' and ge_five_occupied_seats(i, j):
                 new_board[i][j] = 'L'
             else:
                 new_board[i][j] = board[i][j]
