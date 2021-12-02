@@ -1,8 +1,9 @@
 # --- Day 15: Rambunctious Recitation ---
 # https://adventofcode.com/2020/day/15
 
-#remarks
-# - speak either 0 (if the last number is new) or an age (if the last number is a repeat)
+
+# remarks:
+# - https://www.reddit.com/r/adventofcode/comments/kdf85p/2020_day_15_solutions/gfybfgn/?utm_source=share&utm_medium=web2x&context=3
 # - part1 worked with list, part2 due to efficiency needed to learn/change to dict
 # - part1 and part2 timing: 5.248828 secs
 
