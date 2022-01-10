@@ -4,7 +4,7 @@
 2018/
 ignore/
 config.py
-test.txt
+test*.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
