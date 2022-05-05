@@ -109,20 +109,12 @@ def load_input_file():
         input_file = [i.rstrip("\n") for i in reader.readlines()]
     if len(input_file) == 0:
         assert False
+    print_yellow("load file...", end="\n")
     return input_file
 
-# ------------- MAIN METHOD --------------
-
-def main():
-
-    input_file = load_input_file()
-    debug_print(input_file)
-    print_yellow("load file...", end="\n")
-
-    # init data
+def init_data(input_file):
     PuzzleData.draw_numbers_list: list = input_file[0].split(",")
     PuzzleData.board_dict_list: list = []
-
 
     # loading board: list of dict with list[x, y, hit] = coordinates and hit or not
     b = {}
@@ -140,6 +132,12 @@ def main():
     debug_print(PuzzleData.draw_numbers_list)
     debug_print(PuzzleData.board_dict_list)
     print_yellow("init data...", end="\n")
+
+# ------------- MAIN METHOD --------------
+
+def main():
+
+    init_data(load_input_file())
 
     part1 = 0
     part2 = 0
