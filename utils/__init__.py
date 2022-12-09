@@ -1,0 +1,46 @@
+# Copyright (c) 2024, https://github.com/arloncunha
+
+from . import streams 
+from . import command_line
+from . import logging
+from . import visuals
+from . import timing 
+
+# Get fully qualified class name of an object in Python
+# https://stackoverflow.com/questions/2020014/get-fully-qualified-class-name-of-an-object-in-python
+def class_fullname(o):
+    klass = o.__class__
+    module = klass.__module__
+    if module == 'builtins':
+        return klass.__qualname__ # avoid outputs like 'builtins.str'
+    return module + '.' + klass.__qualname__
+
+def log_process_stage(msg):
+        
+        # '{:^30}'.format('align centered example')
+        msg_formated = '{:<20}'.format(msg)
+        prefix_decoration = "==========="
+        suffix_decoration = "=" * (80 - len(msg_formated))  
+        logging.log(logging.decorations.BOLD + logging.fg_colors.WHITE +
+                    prefix_decoration, msg_formated, suffix_decoration, show_datetime=False)
+
+def log_puzzle_answer(part, answer):
+        logging.log(logging.decorations.BOLD + logging.fg_colors.WHITE + part + " - answer:", answer, show_datetime=False)
+
+def print_answers(part1, part2):
+    log_puzzle_answer("part 1", part1)
+    log_puzzle_answer("part 2", part2)
+
+def read_input_file(filename):
+    with open(filename, 'r') as reader:
+        input_file = [i.rstrip("\n") for i in reader.readlines()]
+    if len(input_file) == 0:
+        assert False
+    if filename.endswith('example.txt'):
+        logging.log(f'{logging.fg_colors.CYAN}{logging.decorations.UNDERLINE}{filename}{logging.decorations.RESET} {logging.fg_colors.CYAN}input file readed{logging.decorations.RESET}')
+    return input_file
+
+def assert_answer(answer, expected, example=False):
+        if example:
+            assert answer == expected, f"Answer: |{answer}|"
+            logging.log("asserting example:", answer, "=", expected)

@@ -6,6 +6,7 @@ ignore/
 config.py
 test*.txt
 test*.py
+input.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
