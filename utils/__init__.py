@@ -42,5 +42,16 @@ def read_input_file(filename):
 
 def assert_answer(answer, expected, example=False):
         if example:
+            logging.log(f"asserting example: {answer=} {expected=}")
             assert answer == expected, f"Answer: |{answer}|"
-            logging.log("asserting example:", answer, "=", expected)
+
+def log_elapse_time():
+    logging.log("elapse time part 1: "+ '{:>10}'.format(str(timing.elapsed_time_btw_laps(0,1))), show_datetime = False)
+    logging.log("elapse time part 2: "+ '{:>10}'.format(str(timing.elapsed_time_btw_laps(1,2))), show_datetime = False)
+    logging.log("total elapse time : "+ '{:>10}'.format(str(timing.elapsed_time())),             show_datetime = False)
+
+def merge_lists(l1, l2):
+     return [*l1, *l2]  # unpack both iterables in a list literal
+
+def get_dict_key(dict, index=0):
+     return list(dict.keys())[index]

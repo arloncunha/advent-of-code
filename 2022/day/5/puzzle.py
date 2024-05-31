@@ -107,7 +107,7 @@ def part1():
     """--- adventofcode interface
     """
 
-    stack_of_crates = utils.streams.list_copy(PuzzleData.stack_of_crates)
+    stack_of_crates = utils.streams.deepcopy(PuzzleData.stack_of_crates)
     # in_move_crates = PuzzleData.steps[0][0]
     # in_from        = PuzzleData.steps[0][1] - 1
     # in_to          = PuzzleData.steps[0][2] - 1
@@ -129,7 +129,7 @@ def part2():
     """--- adventofcode interface
     """
 
-    stack_of_crates = utils.streams.list_copy(PuzzleData.stack_of_crates)
+    stack_of_crates = utils.streams.deepcopy(PuzzleData.stack_of_crates)
 
     # in_move_crates = PuzzleData.steps[0][0]
     # in_from        = PuzzleData.steps[0][1] - 1

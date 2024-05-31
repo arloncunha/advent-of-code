@@ -20,5 +20,5 @@ def save_file(content, filename):
     logging.log(f'{logging.decorations.UNDERLINE}{filename}{logging.decorations.RESET} saved')
 
 
-def list_copy(from_list):
-    return copy.deepcopy(from_list)
+def deepcopy(var):
+    return copy.deepcopy(var)

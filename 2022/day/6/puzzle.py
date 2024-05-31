@@ -26,9 +26,10 @@ class PuzzleData:
     __example__ = False 
     # ------------- example_expect_answer1 needed  --------------    
     # ------------- example_expect_answer2 needed  --------------    
-    example_expect_answer1 = 'CMZ'
-    example_expect_answer2 = 'MCD'
+    example_expect_answer1 = 7
+    example_expect_answer2 = 19
 
+    datastream_buffer = ''
 
 # ------------- INITIALIZE PUZZLE DATA METHOD  --------------
 
@@ -39,18 +40,49 @@ def init_data(input_file, example=False):
     # ------------- don't touch: main adventofcode -------------- 
     PuzzleData.__example__ = example 
 
+    PuzzleData.datastream_buffer = input_file[0]
 
 # ------------- PUZZLE METHODS --------------
+
+def start_of_marker(datastream_buffer, marker_size):
+
+    for i in range(len(datastream_buffer) - marker_size - 1):
+        packet = datastream_buffer[i:i+marker_size]
+        valid_packet = True
+        for j in range(marker_size):
+            if not valid_packet:
+                 break 
+            for k in range(marker_size):
+                if not valid_packet:
+                     break 
+                if j != k:
+                    if packet[j] == packet[k]:
+                        valid_packet = False
+                        break
+        if valid_packet:
+            return i+marker_size
+            break
+
+def start_of_packet_marker(datastream_buffer):
+    return start_of_marker(datastream_buffer, 4)
+
+def start_of_message_marker(datastream_buffer):
+    return start_of_marker(datastream_buffer, 14)
+
 
 
 def part1():
     """--- adventofcode interface for solving part 1
     """
-
+    datastream_buffer = utils.streams.deepcopy(PuzzleData.datastream_buffer)
+    return start_of_packet_marker(datastream_buffer)
 
 def part2():
     """--- adventofcode interface for solving part 2
     """
+
+    datastream_buffer = utils.streams.deepcopy(PuzzleData.datastream_buffer)
+    return start_of_message_marker(datastream_buffer)
 
 
 # ------------- don't touch: main adventofcode --------------
