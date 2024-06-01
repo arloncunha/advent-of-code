@@ -1,8 +1,9 @@
 ![antifragility yes](https://img.shields.io/badge/antifragile-yes-blue)
 
 # advent-of-code
-**[Advent of Code](https://adventofcode.com/)** is an Advent calendar of small programming puzzles.
-Here are my experiments playing with programming just for fun.
+**[Advent of Code](https://adventofcode.com/)** is an Advent calendar of small programming puzzles[^1].
+
+Here are my problem solving skills practices just for fun.
 
 ## Advent Calendar Puzzles  
 
@@ -11,4 +12,4 @@ Here are my experiments playing with programming just for fun.
 - [2022](https://github.com/arloncunha/advent-of-code/blob/main/doc/2022.md#adventofcode2022)
 - [2023](https://github.com/arloncunha/advent-of-code/blob/main/doc/2023.md#adventofcode2023)
 
-
+[^1]: "...every problem has a solution that completes in at most 15 seconds on ten-year-old hardware." Eric Wastl - creator of Advent of Code
