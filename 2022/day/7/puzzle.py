@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # Copyright (c) 2024, https://github.com/arloncunha
 
-# --- Day 6: Tuning Trouble ---
-# https://adventofcode.com/2022/day/6
+# --- Day 7: No Space Left On Device ---
+# https://adventofcode.com/2022/day/7
 
 # ------------- IMPORT DECLARATION --------------
 
