@@ -21,5 +21,5 @@ for line in input:
     elif m.group(1) == 'up':
         y = y - int(m.group(2))
         aim = aim - int(m.group(2))
-print x * y
-print x2 * y2
+print(x * y)
+print(x2 * y2)

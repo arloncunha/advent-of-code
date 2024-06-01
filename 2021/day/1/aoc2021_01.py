@@ -12,5 +12,5 @@ for i in range(len(input) - 1):
 for i in range(len(input) - 3):
     part2 = part2 + int((input[i+3] + input[i+2] + input[i+1]) > (input[i+2] + input[i+1] + input[i]))
 
-print part1
-print part2
+print(part1)
+print(part2)

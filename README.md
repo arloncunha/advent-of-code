@@ -31,11 +31,11 @@ Here are my experiments playing with programming just for fun.
 |  [2020/day/23](https://adventofcode.com/2020/day/23) | | | | 
 |  [2020/day/24](https://adventofcode.com/2020/day/24) | | | | 
 |  [2020/day/25](https://adventofcode.com/2020/day/25) | | | | 
-|  [2021/day/1](https://adventofcode.com/2021/day/1) | Day 1: Sonar Sweep | | |
-|  [2021/day/2](https://adventofcode.com/2021/day/2) | Day 2: Dive! | | |
-|  [2021/day/3](https://adventofcode.com/2021/day/3) | Day 3: Binary Diagnostic| | |
-|  [2021/day/4](https://adventofcode.com/2021/day/4) | Day 4: Giant Squid | | |
-|  [2021/day/5](https://adventofcode.com/2021/day/5) | Day 5: Hydrothermal Venture | | |
+|  [2021/day/1](https://adventofcode.com/2021/day/1) | Day 1: Sonar Sweep | list(int) |  `list` `sum` |
+|  [2021/day/2](https://adventofcode.com/2021/day/2) | Day 2: Dive! | list(instruction, int) | `arithmetic` |
+|  [2021/day/3](https://adventofcode.com/2021/day/3) | Day 3: Binary Diagnostic| list(binary) | `decision table` `bitwise operators` `base conversion` |
+|  [2021/day/4](https://adventofcode.com/2021/day/4) | Day 4: Giant Squid | list(board(int)) | `matrix` `sum` |
+|  [2021/day/5](https://adventofcode.com/2021/day/5) | Day 5: Hydrothermal Venture | list('two int pairs') | `geometric algebra`  |
 |  [2021/day/6](https://adventofcode.com/2021/day/6) | | | | 
 |  [2021/day/7](https://adventofcode.com/2021/day/7) | | | | 
 |  [2021/day/8](https://adventofcode.com/2021/day/8) | | | | 
@@ -59,7 +59,7 @@ Here are my experiments playing with programming just for fun.
 |  [2022/day/1](https://adventofcode.com/2022/day/1) | Day 1: Calorie Counting| list(int) | `list` `sum`  |
 |  [2022/day/2](https://adventofcode.com/2022/day/2) | Day 2: Rock Paper Scissors  | list(char, int)  | `decision table`  |
 |  [2022/day/3](https://adventofcode.com/2022/day/3) | Day 3: Rucksack Reorganization | list(string)  |  `list` `sum`  |
-|  [2022/day/4](https://adventofcode.com/2022/day/4) | Day 4: Camp Cleanup | list('two int pairs') |    |
+|  [2022/day/4](https://adventofcode.com/2022/day/4) | Day 4: Camp Cleanup | list('two int pairs') | `comparison operators`  |
 |  [2022/day/5](https://adventofcode.com/2022/day/5) | Day 5: Supply Stacks  | `parsing` table(chars) + list(instructions) | `tree` `list` `sum` |
 |  [2022/day/6](https://adventofcode.com/2022/day/6) | Day 6: Tuning Trouble | string | `char` `counting`  |
 |  [2022/day/7](https://adventofcode.com/2022/day/7) | Day 7: No Space Left On Device |  `parsing` list('pseudo shell instructions')  | `list` `sum`  |
