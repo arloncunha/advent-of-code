@@ -1,0 +1,29 @@
+# adventofcode/year
+
+| Challenge | Puzzle | input | tags |
+| --- | --- | --- | -- |
+|  [2020/day/1](https://adventofcode.com/2020/day/1) | | | | 
+|  [2020/day/2](https://adventofcode.com/2020/day/2) | | | | 
+|  [2020/day/3](https://adventofcode.com/2020/day/3) | | | | 
+|  [2020/day/4](https://adventofcode.com/2020/day/4) | | | | 
+|  [2020/day/5](https://adventofcode.com/2020/day/5) | | | | 
+|  [2020/day/6](https://adventofcode.com/2020/day/6) | | | | 
+|  [2020/day/7](https://adventofcode.com/2020/day/7) | | | | 
+|  [2020/day/8](https://adventofcode.com/2020/day/8) | | | | 
+|  [2020/day/9](https://adventofcode.com/2020/day/9) | | | | 
+|  [2020/day/10](https://adventofcode.com/2020/day/10) | | | | 
+|  [2020/day/11](https://adventofcode.com/2020/day/11) | | | | 
+|  [2020/day/12](https://adventofcode.com/2020/day/12) | | | | 
+|  [2020/day/13](https://adventofcode.com/2020/day/13) | | | | 
+|  [2020/day/14](https://adventofcode.com/2020/day/14) | | | | 
+|  [2020/day/15](https://adventofcode.com/2020/day/15) | | | | 
+|  [2020/day/16](https://adventofcode.com/2020/day/16) | | | | 
+|  [2020/day/17](https://adventofcode.com/2020/day/17) | | | | 
+|  [2020/day/18](https://adventofcode.com/2020/day/18) | | | | 
+|  [2020/day/19](https://adventofcode.com/2020/day/19) | | | | 
+|  [2020/day/20](https://adventofcode.com/2020/day/20) | | | | 
+|  [2020/day/21](https://adventofcode.com/2020/day/21) | | | | 
+|  [2020/day/22](https://adventofcode.com/2020/day/22) | | | | 
+|  [2020/day/23](https://adventofcode.com/2020/day/23) | | | | 
+|  [2020/day/24](https://adventofcode.com/2020/day/24) | | | | 
+|  [2020/day/25](https://adventofcode.com/2020/day/25) | | | | 
