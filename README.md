@@ -1,7 +1,7 @@
 ![antifragility yes](https://img.shields.io/badge/antifragile-yes-blue)
 
 # advent-of-code
-**[Advent of Code](https://adventofcode.com/)** is an Advent calendar of small programming puzzles[^1].
+[Advent of Code](https://adventofcode.com/) is an Advent calendar of small programming puzzles[^1].
 
 Here are my problem solving skills practices just for fun.
 

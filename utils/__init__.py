@@ -1,10 +1,13 @@
 # Copyright (c) 2024, https://github.com/arloncunha
 
+import sys
+import re
 from . import streams 
 from . import command_line
 from . import logging
 from . import visuals
 from . import timing 
+from . import puzzle
 
 # Get fully qualified class name of an object in Python
 # https://stackoverflow.com/questions/2020014/get-fully-qualified-class-name-of-an-object-in-python
@@ -53,5 +56,24 @@ def log_elapse_time():
 def merge_lists(l1, l2):
      return [*l1, *l2]  # unpack both iterables in a list literal
 
+
+def list_of_dict_keys(dict_list):
+    key_list = []
+    for d in dict_list:
+        key_list.append(get_dict_key(d))
+    
+    return key_list
+
 def get_dict_key(dict, index=0):
-     return list(dict.keys())[index]
+    """--- turns a dict into a list of keys and return key[index]
+    """
+     
+    return list(dict.keys())[index]
+
+def strings_to_int_list(string_list):
+    """--- Converting all strings in list to integers
+       --- example: ['1', '-4', '3', '-6', '7']
+       ---      >>> [1, -4, 3, -6, 7]
+    """
+
+    return [int(i) for i in string_list]

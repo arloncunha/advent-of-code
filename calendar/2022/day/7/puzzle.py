@@ -7,10 +7,8 @@
 # ------------- IMPORT DECLARATION --------------
 
 import sys
-sys.path.extend(['.', '../../../utils/'])
+sys.path.extend(['.', '../../../../utils/'])
 import utils
-
-import re
 
 # ------------- DATA DECLARATION --------------
 
@@ -56,7 +54,7 @@ def init_data(input_file, example=False):
 
         # 'ls' can be just ignored
 
-        m = re.match(r"\$\s(cd)\s(\S+)", line)
+        m = utils.re.match(r"\$\s(cd)\s(\S+)", line)
         if m is not None:
             # print(f"DEBUG cd dir {m.group(2)}")
             # print(f"DEBUG pwd dir {pwd=}")
@@ -81,7 +79,7 @@ def init_data(input_file, example=False):
             # if m.group(2) in '..':
             #     pwd.append({'dir': m.group(2)})
 
-        m = re.match(r"(dir)\s(\S+)", line)
+        m = utils.re.match(r"(dir)\s(\S+)", line)
         if m is not None:
             # print(f"DEBUG ls dir {m.groups()}")
             if m.group(2) not in pwd:
@@ -90,7 +88,7 @@ def init_data(input_file, example=False):
                 pwd[m.group(2)] = {'dir': {}}
 
 
-        m = re.match(r"(\d+)\s(\S+)", line)
+        m = utils.re.match(r"(\d+)\s(\S+)", line)
         if m is not None:
             # print(f"DEBUG ls file {m.groups()} {m.group(0)=} {int(m.group(1))=}  {m.group(2)=}")
             if m.group(2) not in pwd:
@@ -102,7 +100,7 @@ def init_data(input_file, example=False):
         utils.logging.log(f"{PuzzleData.filesystem=}")
         from pprint import pprint
         pprint(PuzzleData.filesystem)
-
+    
 # ------------- PUZZLE METHODS --------------
 
 def dir_size(dir):
@@ -130,6 +128,13 @@ def sum_size_if_at_most_100000(dir):
             total_size += sum_size_if_at_most_100000(item[1])
     return total_size
 
+def list_of_dir_sizes_in_order(dir_list):
+
+    size_list = utils.strings_to_int_list(utils.list_of_dict_keys(dir_list))
+    size_list.sort()
+    # print(f"DEBUG {size_list=}")
+    return size_list
+
 
 def smallest_dir_to_delete(dirname, dir):
 
@@ -138,41 +143,23 @@ def smallest_dir_to_delete(dirname, dir):
 
     dir_list = dir_size_list(dirname, dir)
 
-    # print(f"DEBUG {dir_list=}")
-    # print(f"DEBUG {list(reversed(dir_list))=}")
-
     total_used_space = int(utils.get_dict_key(list(reversed(dir_list))[0], 0)) 
 
-    # print(f"DEBUG {dir_list=}")
-
-
-    for dir in dir_list:
-        # print(f"DEBUG {dir=}")
-        # print(f"DEBUG {dir=} {list(dir.keys())[0]=}")
-        dir_size = int(utils.get_dict_key(dir, 0))
-        # print(f"DEBUG {dir_size=}")
+    for size in list_of_dir_sizes_in_order(dir_list):
         
-        if (total_used_space - dir_size) <= unused_space_needed:
-            return dir_size
+        # is dir size <= than space needed to be deleted
+        if size >= unused_space_needed-(total_disk_space-total_used_space):
+            return size
     return 0
 
 
 def dir_size_list(dirname, dir):
     dirs = []
-    total_size = 0
     for item in dir['dir'].items():
         if 'dir' in item[1]:
-            # size = dir_size(item[1])
-            # dirs.append({str(size): item[0]})
-            # print(f"{size=} DEBUG {item[0]=}")
-            # total_size += size
-            # print(f"DEBUG merge {item[0]=} {size=}")
             dirs = utils.merge_lists(dirs, (dir_size_list(item[0], item[1])))
-            # print(f"DEBUG merge {dirs=}")
-    # print(f"DEBUG totalsize {total_size=} {dirname=}")
     dirs.append({str(dir_size(dir)): dirname})
     return dirs
-    return total_size
 
 
 
@@ -193,35 +180,39 @@ def part2():
     filesystem = utils.streams.deepcopy(PuzzleData.filesystem)
     # print(f"DEBUG {filesystem['/']=}")
     # print(f"DEBUG {dir_size_list('/', filesystem['/'])}")
+
     return smallest_dir_to_delete('/', filesystem['/'])
+
 
 
 # ------------- don't touch: main adventofcode --------------
 # ------------- MAIN METHOD ---------------------------------
 
-def main():
+def main(input_file):
 
+    utils.visuals.clear()
+    utils.log_process_stage("initializing data")
+    init_data(utils.read_input_file(input_file), example=input_file.endswith('example.txt'))
+
+    utils.log_process_stage("begin solving the puzzle")
     utils.log_process_stage("solving part 1")
     utils.timing.start_timer()
     answer_1 = part1()
+
     utils.assert_answer(answer_1, PuzzleData.example_expect_answer1, PuzzleData.__example__)
     utils.timing.lap_timer()
     utils.log_process_stage("solving part 2")
     answer_2 = part2()
+
     utils.assert_answer(answer_2, PuzzleData.example_expect_answer2, PuzzleData.__example__)
     utils.timing.stop_timer()
     utils.log_elapse_time()
     utils.print_answers(answer_1, answer_2)
 
-
 # ------------- don't touch: main adventofcode --------------
 
-import sys
 if __name__ == '__main__':
 
-    utils.visuals.clear()
-    utils.log_process_stage("initializing data")
-    input_file = utils.read_input_file(sys.argv[1])
-    init_data(input_file, example=sys.argv[1].endswith('example.txt'))
-    utils.log_process_stage("begin solving the puzzle")
-    main()
+    # receives input file
+    main(sys.argv[1])
+

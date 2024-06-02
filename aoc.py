@@ -14,7 +14,7 @@ def main():
     EXAMPLE     = cmd_line_args.example
     INPUT_FILE  = 'example.txt' if EXAMPLE else 'input.txt'
     
-    os.system(f'python ./{YEAR}/day/{DAY}/puzzle.py ./{YEAR}/day/{DAY}/{INPUT_FILE}')
+    os.system(f'python ./calendar/{YEAR}/day/{DAY}/puzzle.py ./calendar/{YEAR}/day/{DAY}/{INPUT_FILE}')
 
 # -- Execute -------------------------------------------------------------------------------------------------
 
