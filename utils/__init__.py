@@ -77,3 +77,84 @@ def strings_to_int_list(string_list):
     """
 
     return [int(i) for i in string_list]
+
+def number_to_digit_list(number):
+    """--- Converting integer to digit list
+    """
+
+    return [int(x) for x in str(number)]
+
+
+def is_positive(num):
+     return num >= 0
+
+def transpose_matrix(m):
+     # short circuits at shortest nested list if table is jagged
+    return list(map(list, zip(*m)))
+
+# def sanitized_sqrt(numbers):
+#     import math
+#     cleaned_iter = map(math.sqrt, filter(is_positive, numbers))
+#     return list(cleaned_iter)
+
+# sanitized_sqrt([25, 9, 81, -16, 0])
+# >>> [5.0, 3.0, 9.0, 0.0]
+
+
+def matrix_walk_into_list_of_neighbors(list_of_lists, include_diagonal=True, none_for_out_range=True):
+    """--- cell + list of adjacent cells, clockwise starting from top (12 o'clock)
+           if ignore_out_range then list only with valid values (less neighbors) otherwise
+           non-neibhbors will be None
+    """ 
+    # print(f"DEBUG {range(len(list_of_lists))=}")
+    for row in range(len(list_of_lists)):
+        for col in range(len(list_of_lists[row])):
+            # print(f"DEBUG {row=}")
+            # print(f"DEBUG {len(row)=}")
+
+            l = []
+            l.append(list_of_lists[row][col])
+            if row > 0:             
+                l.append(list_of_lists[row - 1][col]) # TOP
+            elif none_for_out_range:
+                 l.append(None)
+            if include_diagonal and (row > 0 and col < len(list_of_lists[row]) - 1):
+                l.append(list_of_lists[row - 1][col + 1]) # TOP - RIGHT
+            elif include_diagonal and none_for_out_range:
+                 l.append(None)
+            if col < len(list_of_lists[row]) - 1:
+                l.append(list_of_lists[row][col + 1]) # RIGHT
+            elif none_for_out_range:
+                 l.append(None)
+            if include_diagonal and (row < len(list_of_lists) - 1 and col < len(list_of_lists[row]) - 1):
+                l.append(list_of_lists[row + 1][col + 1]) # DOWN - RIGHT
+            elif include_diagonal and none_for_out_range:
+                 l.append(None)
+            if (row < len(list_of_lists) - 1):
+                l.append(list_of_lists[row + 1][col]) # DOWN
+            elif none_for_out_range:
+                 l.append(None)
+            if include_diagonal and (row < len(list_of_lists) - 1 and col > 0):
+                l.append(list_of_lists[row + 1][col -1]) # DOWN - LEFT
+            elif include_diagonal and none_for_out_range:
+                 l.append(None)
+            if col > 0:
+                l.append(list_of_lists[row][col - 1]) # LEFT
+            elif none_for_out_range:
+                 l.append(None)
+            if include_diagonal and (row > 0 and col > 0):
+                l.append(list_of_lists[row - 1][col - 1]) # TOP - LEFT
+            elif include_diagonal and none_for_out_range:
+                 l.append(None)
+                 
+
+            # print(f"DEBUG {row=}{col=} {list_of_lists[row][col]} {l=}")
+
+            yield l
+
+
+# Mapping consists of applying a transformation function to an iterable to produce a new iterable. Items in the new iterable are produced by calling the transformation function on each item in the original iterable.
+
+# Filtering consists of applying a predicate or Boolean-valued function to an iterable to generate a new iterable. Items in the new iterable are produced by filtering out any items in the original iterable that make the predicate function return false.
+
+# Reducing consists of applying a reduction function to an iterable to produce a single cumulative value.
