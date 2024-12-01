@@ -11,5 +11,6 @@ Here are my problem solving skills practices just for fun.
 - [2021](https://github.com/arloncunha/advent-of-code/blob/main/doc/2021.md#adventofcode2021)
 - [2022](https://github.com/arloncunha/advent-of-code/blob/main/doc/2022.md#adventofcode2022)
 - [2023](https://github.com/arloncunha/advent-of-code/blob/main/doc/2023.md#adventofcode2023)
+- [2024](https://github.com/arloncunha/advent-of-code/blob/main/doc/2023.md#adventofcode2024)
 
 [^1]: "...every problem has a solution that completes in at most 15 seconds on ten-year-old hardware." Eric Wastl - creator of Advent of Code
