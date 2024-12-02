@@ -44,7 +44,7 @@ def read_input_file(filename):
     return input_file
 
 def assert_answer(answer, expected, example=False):
-        if example:
+        if example and expected:
             logging.log(f"asserting example: {answer=} {expected=}")
             assert answer == expected, f"Answer: |{answer}|"
 
@@ -100,6 +100,58 @@ def transpose_matrix(m):
 # sanitized_sqrt([25, 9, 81, -16, 0])
 # >>> [5.0, 3.0, 9.0, 0.0]
 
+
+def cell_and_neighbors_walk(list_of_lists, include_diagonal=True, none_for_out_range=True):
+    """--- returns a tuple: 
+                    - cell 
+                    - list of adjacent cells, clockwise starting from top (12 o'clock)
+           if ignore_out_range then list only with valid values (less neighbors) otherwise
+           non-neibhbors will be None
+    """ 
+    # print(f"DEBUG {range(len(list_of_lists))=}")
+    for row in range(len(list_of_lists)):
+        for col in range(len(list_of_lists[row])):
+            # print(f"DEBUG {row=}")
+            # print(f"DEBUG {len(row)=}")
+
+            l = []
+            if row > 0:             
+                l.append(list_of_lists[row - 1][col]) # TOP
+            elif none_for_out_range:
+                 l.append(None)
+            if include_diagonal and (row > 0 and col < len(list_of_lists[row]) - 1):
+                l.append(list_of_lists[row - 1][col + 1]) # TOP - RIGHT
+            elif include_diagonal and none_for_out_range:
+                 l.append(None)
+            if col < len(list_of_lists[row]) - 1:
+                l.append(list_of_lists[row][col + 1]) # RIGHT
+            elif none_for_out_range:
+                 l.append(None)
+            if include_diagonal and (row < len(list_of_lists) - 1 and col < len(list_of_lists[row]) - 1):
+                l.append(list_of_lists[row + 1][col + 1]) # DOWN - RIGHT
+            elif include_diagonal and none_for_out_range:
+                 l.append(None)
+            if (row < len(list_of_lists) - 1):
+                l.append(list_of_lists[row + 1][col]) # DOWN
+            elif none_for_out_range:
+                 l.append(None)
+            if include_diagonal and (row < len(list_of_lists) - 1 and col > 0):
+                l.append(list_of_lists[row + 1][col -1]) # DOWN - LEFT
+            elif include_diagonal and none_for_out_range:
+                 l.append(None)
+            if col > 0:
+                l.append(list_of_lists[row][col - 1]) # LEFT
+            elif none_for_out_range:
+                 l.append(None)
+            if include_diagonal and (row > 0 and col > 0):
+                l.append(list_of_lists[row - 1][col - 1]) # TOP - LEFT
+            elif include_diagonal and none_for_out_range:
+                 l.append(None)
+                 
+
+            # print(f"DEBUG {row=}{col=} {list_of_lists[row][col]} {l=}")
+
+            yield list_of_lists[row][col],l
 
 def matrix_walk_into_list_of_neighbors(list_of_lists, include_diagonal=True, none_for_out_range=True):
     """--- cell + list of adjacent cells, clockwise starting from top (12 o'clock)
